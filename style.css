@@ -1,8 +1,22 @@
-html, body {
+body, html {
   margin: 0;
   padding: 0;
+  font-family: "Courier New", Courier, monospace;
+  background: #F3F2F1;
 }
 
 canvas {
   display: block;
+}
+
+/* Contenitore del testo all'interno della cartella */
+.text-content {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: justify;
+  color: #000000;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
