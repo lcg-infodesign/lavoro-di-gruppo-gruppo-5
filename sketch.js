@@ -1,6 +1,6 @@
 // Parametri globali
 let folders = [];
-let activeFolderIndex = -1; // Nessuna cartella attiva iniziale
+let activeFolderIndex = -1; // Nessuna cartella attiva all'inizio
 let folderHeight = 600;
 let folderWidth = 1080;
 let tabHeight = 46;
@@ -37,10 +37,11 @@ let typingIndex = 0;
 let typingSpeed = 30; // Velocità dell'effetto macchina da scrivere
 
 let dataset; // Variabile per contenere il dataset
+let epocaFascistaData = {}; // Dati per la cartella "Epoca Fascista"
 
 function preload() {
   // Carica il dataset dalla cartella assets
-  dataset = loadTable("./assets/dataset.csv", 'csv', "header");
+  dataset = loadTable("assets/Censura-Cinematografica.csv", "header");
 }
 
 function setup() {
@@ -68,8 +69,8 @@ function setup() {
     y += folderSpacings[i % folderSpacings.length]; // Aggiungi una distanza irregolare tra le cartelle
   }
 
-  // Debug: verifica se il dataset è stato caricato correttamente
-  console.log(dataset.getRowCount(), "righe caricate");
+  // Prepara i dati per "Epoca Fascista"
+  prepareEpocaFascistaData();
 }
 
 function draw() {
@@ -83,7 +84,7 @@ function draw() {
     // Aggiorna l'animazione delle cartelle
     if (activeFolderIndex === folder.index) {
       folder.targetY = 100; // Posizione superiore
-      folder.height = lerp(folder.height, height, 0.05); // Espande la cartella attiva
+      folder.height = lerp(folder.height, windowHeight - 100, 0.05); // Espande la cartella attiva fino a fine schermo
     } else if (activeFolderIndex !== -1) {
       folder.targetY = height + 100; // Sposta le altre cartelle fuori schermo
       folder.height = lerp(folder.height, 0, 0.05); // Riduci altezza delle cartelle non attive
@@ -121,9 +122,13 @@ function drawFolder(folder) {
   textSize(16);
   text(folder.tabText, folder.tabX + tabWidth / 2, folder.y - tabHeight / 2);
 
-  // Contenitore del testo (solo per "Introduzione")
-  if (folder.index === activeFolderIndex && folder.tabText === "Introduzione") {
-    drawTextContainer(folder.x, folder.y, folderWidth, folder.height, folder.color);
+  // Contenitore del testo
+  if (folder.index === activeFolderIndex) {
+    if (folder.tabText === "Introduzione") {
+      drawIntroContent(folder.x, folder.y, folderWidth, folder.height, folder.color);
+    } else if (folder.tabText === "Epoca Fascista") {
+      drawEpocaFascistaContent(folder.x, folder.y, folderWidth, folder.height, folder.color);
+    }
   }
 }
 
@@ -150,23 +155,89 @@ function drawTextHighlight(x, y, textContent) {
   rect(x - textWidthVal / 2, y - textHeightVal / 2, textWidthVal, textHeightVal, 3);
 }
 
-function drawTextContainer(x, y, w, h, color) {
-  let textX = x + 100; // Padding laterale di 100px
-  let textY = y + 50; // Padding superiore di 50px
+function drawIntroContent(x, y, w, h, color) {
   fill(color);
   noStroke();
-  rect(x, y, w, h, 5); // Rettangolo dello stesso colore della cartella
+  rect(x + 50, y + 50, w - 100, h - 100, 5);
 
   fill(0);
   textAlign(LEFT, TOP);
   textSize(14);
+  let textX = x + 70;
+  let textY = y + 70;
 
   let visibleText = introText.slice(0, typingIndex);
-  text(visibleText, textX, textY, w - 200, h - 100); // Riduci la larghezza del testo per rispettare il padding destro e sinistro
+  text(visibleText, textX, textY, w - 140);
 
   if (typingIndex < introText.length) {
     typingIndex++;
   }
+}
+
+function drawEpocaFascistaContent(x, y, w, h, color) {
+  fill(color);
+  noStroke();
+  rect(x, y, w, h, 5);
+
+  fill(0);
+  textAlign(LEFT, TOP);
+  textSize(18);
+  textLeading(24);
+
+  let textX = x + 200;
+  let textY = 390;
+  let contentWidth = w - 400;
+
+  let content = "";
+  for (const [date, films] of Object.entries(epocaFascistaData)) {
+    content += `${date} `;
+    for (const film of films) {
+      let reason = dataset.findRow(film, "Title")?.get("Categorie di Censura");
+      let symbol = getCensorshipSymbol(reason);
+      content += `${symbol} ${film} `;
+    }
+  }
+  text(content, textX, textY, contentWidth);
+}
+
+function getCensorshipSymbol(reason) {
+  switch (reason?.toLowerCase()) {
+    case "religione":
+      return "∓";
+    case "violenza":
+      return "∩";
+    case "sesso":
+      return "∇";
+    case "politica":
+      return "∅";
+    default:
+      return "";
+  }
+}
+
+function prepareEpocaFascistaData() {
+  let filteredRows = dataset.rows.filter(row => {
+    let banningDate = parseInt(row.get("Banning Date"));
+    return banningDate >= 1922 && banningDate <= 1943;
+  });
+
+  for (let row of filteredRows) {
+    let date = row.get("Banning Date");
+    let title = row.get("Title");
+
+    if (!epocaFascistaData[date]) {
+      epocaFascistaData[date] = [];
+    }
+
+    epocaFascistaData[date].push(title);
+  }
+
+  epocaFascistaData = Object.keys(epocaFascistaData)
+    .sort()
+    .reduce((acc, key) => {
+      acc[key] = epocaFascistaData[key];
+      return acc;
+    }, {});
 }
 
 function mousePressed() {
@@ -178,11 +249,10 @@ function mousePressed() {
       mouseY < folder.y
     ) {
       if (folder.index === activeFolderIndex) {
-        activeFolderIndex = -1; // Chiudi la cartella se è già attiva
-        typingIndex = 0; // Resetta l'effetto macchina da scrivere
+        activeFolderIndex = -1;
       } else {
-        activeFolderIndex = folder.index; // Apri la cartella cliccata
-        typingIndex = 0; // Inizia l'effetto macchina da scrivere
+        activeFolderIndex = folder.index;
+        typingIndex = 0;
       }
       break;
     }
