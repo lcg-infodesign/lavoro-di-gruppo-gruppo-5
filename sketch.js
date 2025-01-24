@@ -36,6 +36,13 @@ let introText = `Il rapporto tra cinema e censura è da sempre complesso e affas
 let typingIndex = 0;
 let typingSpeed = 30; // Velocità dell'effetto macchina da scrivere
 
+let dataset; // Variabile per contenere il dataset
+
+function preload() {
+  // Carica il dataset dalla cartella assets
+  dataset = loadTable("./assets/dataset.csv", 'csv', "header");
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   let x = (width - folderWidth) / 2; // Centrare orizzontalmente
@@ -60,6 +67,9 @@ function setup() {
     });
     y += folderSpacings[i % folderSpacings.length]; // Aggiungi una distanza irregolare tra le cartelle
   }
+
+  // Debug: verifica se il dataset è stato caricato correttamente
+  console.log(dataset.getRowCount(), "righe caricate");
 }
 
 function draw() {
@@ -123,14 +133,8 @@ function drawTab(x, y, w, h, color) {
   beginShape();
 
   // Parte superiore smussata
-  
   vertex(x + 20, y); // Angolo smussato a sinistra
-  
   vertex(x + w - 20, y); // Angolo smussato a destra
-  
-  
-  
-  
   vertex(x + w, y + h); // Parte bassa a destra
   vertex(x, y + h); // Parte bassa a sinistra
 
