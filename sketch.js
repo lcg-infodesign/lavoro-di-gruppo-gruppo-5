@@ -37,7 +37,7 @@ let typingIndex = 0;
 let typingSpeed = 30; // Velocità dell'effetto macchina da scrivere
 
 let dataset; // Variabile per contenere il dataset
-let epocaFascistaData = {}; // Dati per la cartella "Epoca Fascista"
+let sectionData = {}; // Oggetto per gestire i dati di tutte le sezioni
 
 function preload() {
   // Carica il dataset dalla cartella assets
@@ -69,8 +69,8 @@ function setup() {
     y += folderSpacings[i % folderSpacings.length]; // Aggiungi una distanza irregolare tra le cartelle
   }
 
-  // Prepara i dati per "Epoca Fascista"
-  prepareEpocaFascistaData();
+  // Prepara i dati per tutte le sezioni
+  prepareData();
 }
 
 function draw() {
@@ -126,8 +126,8 @@ function drawFolder(folder) {
   if (folder.index === activeFolderIndex) {
     if (folder.tabText === "Introduzione") {
       drawIntroContent(folder.x, folder.y, folderWidth, folder.height, folder.color);
-    } else if (folder.tabText === "Epoca Fascista") {
-      drawEpocaFascistaContent(folder.x, folder.y, folderWidth, folder.height, folder.color);
+    } else {
+      drawSectionContent(folder.x, folder.y, folderWidth, folder.height, folder.color, folder.tabText);
     }
   }
 }
@@ -174,70 +174,82 @@ function drawIntroContent(x, y, w, h, color) {
   }
 }
 
-function drawEpocaFascistaContent(x, y, w, h, color) {
+function drawSectionContent(x, y, w, h, color, section) {
   fill(color);
   noStroke();
   rect(x, y, w, h, 5);
 
   fill(0);
   textAlign(LEFT, TOP);
-  textSize(18);
+  textFont("Courier New"); // Imposta tutto il testo in Courier New
+  textSize(16);
   textLeading(24);
 
-  let textX = x + 200;
-  let textY = 390;
-  let contentWidth = w - 400;
+  let textX = x + 50; // Margine laterale
+  let textY = y + 50;
+  let contentWidth = w - 100;
 
-  let content = "";
-  for (const [date, films] of Object.entries(epocaFascistaData)) {
-    content += `${date} `;
+  let sectionContent = sectionData[section];
+
+  push();
+  for (const [date, films] of Object.entries(sectionContent)) {
+    // Mostra la data in bold
+    textStyle(BOLD);
+    let dateText = date + " ";
+    if (textX + textWidth(dateText) > x + contentWidth) {
+      textX = x + 50; // Torna a capo
+      textY += textSize() + 5;
+    }
+    text(dateText, textX, textY);
+    textX += textWidth(dateText);
+
+    // Mostra i film in stile normale
+    textStyle(NORMAL);
     for (const film of films) {
-      let reason = dataset.findRow(film, "Title")?.get("Categorie di Censura");
-      let symbol = getCensorshipSymbol(reason);
-      content += `${symbol} ${film} `;
+      let filmText = film + " ";
+      if (textX + textWidth(filmText) > x + contentWidth) {
+        textX = x + 50; // Torna a capo
+        textY += textSize() + 5;
+      }
+      text(filmText, textX, textY);
+      textX += textWidth(filmText);
     }
   }
-  text(content, textX, textY, contentWidth);
+  pop();
 }
 
-function getCensorshipSymbol(reason) {
-  switch (reason?.toLowerCase()) {
-    case "religione":
-      return "∓";
-    case "violenza":
-      return "∩";
-    case "sesso":
-      return "∇";
-    case "politica":
-      return "∅";
-    default:
-      return "";
+function prepareData() {
+  const sections = {
+    "Epoca Fascista": [1922, 1943],
+    "Il Dopoguerra": [1944, 1950],
+    "Il Boom Economico": [1951, 1967],
+    "Il Sessantotto": [1968, 1980],
+    "Gli Anni 80’ e 90’": [1981, 1999],
+    "Nuovo Millennio": [2000, 9999],
+  };
+
+  for (const [section, range] of Object.entries(sections)) {
+    sectionData[section] = {};
+    dataset.rows.forEach(row => {
+      let banningDate = parseInt(row.get("Banning Date"));
+      if (banningDate >= range[0] && banningDate <= range[1]) {
+        let title = row.get("Title");
+
+        if (!sectionData[section][banningDate]) {
+          sectionData[section][banningDate] = [];
+        }
+
+        sectionData[section][banningDate].push(title);
+      }
+    });
+
+    sectionData[section] = Object.keys(sectionData[section])
+      .sort((a, b) => parseInt(a) - parseInt(b))
+      .reduce((acc, key) => {
+        acc[key] = sectionData[section][key];
+        return acc;
+      }, {});
   }
-}
-
-function prepareEpocaFascistaData() {
-  let filteredRows = dataset.rows.filter(row => {
-    let banningDate = parseInt(row.get("Banning Date"));
-    return banningDate >= 1922 && banningDate <= 1943;
-  });
-
-  for (let row of filteredRows) {
-    let date = row.get("Banning Date");
-    let title = row.get("Title");
-
-    if (!epocaFascistaData[date]) {
-      epocaFascistaData[date] = [];
-    }
-
-    epocaFascistaData[date].push(title);
-  }
-
-  epocaFascistaData = Object.keys(epocaFascistaData)
-    .sort()
-    .reduce((acc, key) => {
-      acc[key] = epocaFascistaData[key];
-      return acc;
-    }, {});
 }
 
 function mousePressed() {
@@ -258,3 +270,4 @@ function mousePressed() {
     }
   }
 }
+
