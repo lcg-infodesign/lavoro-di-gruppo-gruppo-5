@@ -1,6 +1,6 @@
 // Parametri globali
 let folders = [];
-let activeFolderIndex = -1; // Nessuna cartella attiva all'inizio
+let activeFolderIndex = -1; // Nessuna cartella attiva iniziale
 let folderHeight = 600;
 let folderWidth = 1080;
 let tabHeight = 46;
