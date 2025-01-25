@@ -132,6 +132,7 @@ function drawFolder(folder) {
   fill(0);
   textAlign(CENTER, CENTER);
   textSize(16);
+  textFont("Courier New");
   text(folder.tabText, folder.tabX + tabWidth / 2, folder.y - tabHeight / 2);
 
   // Contenitore del testo
@@ -227,7 +228,7 @@ function drawSectionContent(x, y, w, h, color, section) {
       width: textWidth(dateText),
       text: dateText,
     });
-
+    
     textX += textWidth(dateText);
     brushX += textWidth(dateText);
 
@@ -319,6 +320,7 @@ function prepareData() {
 }
 
 function mousePressed() {
+  console.log(sectionData);
   for (let folder of folders) {
     if (
       mouseX > folder.tabX &&
