@@ -42,7 +42,7 @@ let sectionData = {}; // Oggetto per gestire i dati di tutte le sezioni
 function preload() {
   // Carica il dataset dalla cartella assets
   dataset = loadTable("assets/Censura-Cinematografica.csv", "header");
-  brush = loadImage('/assets/laDefense.jpg');
+  brush = loadImage('assets/brush-texture.png');
 }
 
 function setup() {
