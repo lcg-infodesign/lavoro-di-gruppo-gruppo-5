@@ -294,17 +294,5 @@ function mousePressed() {
       break;
     }
   }
-
-  for (let date of dates) {
-    console.log(date);
-    if (
-      mouseX > date.x &&
-      mouseX < date.x + date.width &&
-      mouseY > date.y - date.height &&
-      mouseY < date.y
-    ) {
-      let prova = selectAll(date.text);
-    }
-  }
 }
 
