@@ -121,7 +121,7 @@ function drawFolder(folder) {
   fill(0);
   textAlign(CENTER, CENTER);
   textSize(16);
-  textFont("Courier New");
+  textFont("'Courier New', Courier, monospace");
   text(folder.tabText, folder.tabX + tabWidth / 2, folder.y - tabHeight / 2);
 
   // Contenitore del testo
