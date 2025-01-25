@@ -195,6 +195,7 @@ function drawSectionContent(x, y, w, h, color, section) {
   for (const [date, films] of Object.entries(sectionContent)) {
     // Mostra la data in bold
     textStyle(BOLD);
+    textFont("Courier New");
     let dateText = date + " ";
     if (textX + textWidth(dateText) > x + contentWidth) {
       textX = x + 50; // Torna a capo
