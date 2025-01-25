@@ -278,6 +278,7 @@ function prepareData() {
 }
 
 function mousePressed() {
+  console.log(sectionData);
   for (let folder of folders) {
     if (
       mouseX > folder.tabX &&
