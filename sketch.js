@@ -121,7 +121,7 @@ function drawFolder(folder) {
   fill(0);
   textAlign(CENTER, CENTER);
   textSize(16);
-  textFont("'Courier New', Courier, monospace");
+  textFont("Courier New");
   text(folder.tabText, folder.tabX + tabWidth / 2, folder.y - tabHeight / 2);
 
   // Contenitore del testo
@@ -223,7 +223,7 @@ function drawSectionContent(x, y, w, h, color, section) {
         brushX = x + 50; // Torna a capo
         brushY += textSize() + 5;
       }
-      image(img, brushX, brushY, textWidth(filmText) + 5, 20);
+      image(brush, brushX, brushY, textWidth(filmText) + 5, 20);
       text(filmText, textX, textY);
       textX += textWidth(filmText);
       brushX += textWidth(filmText);
