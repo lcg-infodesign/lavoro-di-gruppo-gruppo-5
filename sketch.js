@@ -191,8 +191,8 @@ function drawSectionContent(x, y, w, h, color, section) {
   let textY = y + 50;
   let contentWidth = w - 100;
 
-  let brushX = x + 45;
-  let brushY = y + 45;
+  let brushX = x + 52;
+  let brushY = y + 52;
 
   let sectionContent = sectionData[section];
 
@@ -223,7 +223,7 @@ function drawSectionContent(x, y, w, h, color, section) {
         brushX = x + 50; // Torna a capo
         brushY += textSize() + 5;
       }
-      image(brush, brushX, brushY, textWidth(filmText) + 5, 20);
+      image(brush, brushX, brushY, textWidth(filmText) - 5, 10);
       text(filmText, textX, textY);
       textX += textWidth(filmText);
       brushX += textWidth(filmText);
