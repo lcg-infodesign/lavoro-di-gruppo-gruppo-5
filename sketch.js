@@ -6,6 +6,8 @@ let folderWidth = 1080;
 let tabHeight = 46;
 let tabWidth = 233;
 
+let dates[];
+
 // Distanze irregolari tra le cartelle
 let folderSpacings = [72, 80, 85, 75, 73, 80, 90, 95]; // Array di distanze predefinite
 
@@ -208,9 +210,19 @@ function drawSectionContent(x, y, w, h, color, section) {
       brushX = x + 50; // Torna a capo
       brushY += textSize() + 5;
     }
-    text(dateText, textX, textY);
+    let provaText = text(dateText, textX, textY);
+    provaText.class(dateText);
+
+    dates.push({
+      x: textX,
+      y: textY,
+      height: 20,
+      width: textWidth(dateText),
+      text: dateText,
+    });
+    
     textX += textWidth(dateText);
-    brushX += textWidth(dateText);
+    brushX += textWidth(dateText
 
     // Mostra i film in stile normale
     textStyle(NORMAL);
@@ -223,7 +235,8 @@ function drawSectionContent(x, y, w, h, color, section) {
         brushX = x + 50; // Torna a capo
         brushY += textSize() + 5;
       }
-      image(brush, brushX, brushY, textWidth(filmText) - 5, 10);
+      let provaImg = image(brush, brushX, brushY, textWidth(filmText) - 5, 10);
+      provaImg.class(dateText);
       text(filmText, textX, textY);
       textX += textWidth(filmText);
       brushX += textWidth(filmText);
@@ -281,6 +294,18 @@ function mousePressed() {
         typingIndex = 0;
       }
       break;
+    }
+  }
+
+  for (let date of dates) {
+    console.log(date);
+    if (
+      mouseX > date.x &&
+      mouseX < date.x + date.width &&
+      mouseY > date.y - date.height &&
+      mouseY < date.y
+    ) {
+      let prova = selectAll(date.text);
     }
   }
 }
