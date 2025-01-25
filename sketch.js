@@ -6,7 +6,7 @@ let folderWidth = 1080;
 let tabHeight = 46;
 let tabWidth = 233;
 
-let dates[];
+let dates = [];
 
 // Distanze irregolari tra le cartelle
 let folderSpacings = [72, 80, 85, 75, 73, 80, 90, 95]; // Array di distanze predefinite
