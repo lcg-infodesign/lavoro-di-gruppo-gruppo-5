@@ -42,6 +42,7 @@ let sectionData = {}; // Oggetto per gestire i dati di tutte le sezioni
 function preload() {
   // Carica il dataset dalla cartella assets
   dataset = loadTable("assets/Censura-Cinematografica.csv", "header");
+  brush = loadImage('/assets/laDefense.jpg');
 }
 
 function setup() {
@@ -120,6 +121,7 @@ function drawFolder(folder) {
   fill(0);
   textAlign(CENTER, CENTER);
   textSize(16);
+  textFont("Courier New");
   text(folder.tabText, folder.tabX + tabWidth / 2, folder.y - tabHeight / 2);
 
   // Contenitore del testo
@@ -189,20 +191,26 @@ function drawSectionContent(x, y, w, h, color, section) {
   let textY = y + 50;
   let contentWidth = w - 100;
 
+  let brushX = x + 45;
+  let brushY = y + 45;
+
   let sectionContent = sectionData[section];
 
   push();
   for (const [date, films] of Object.entries(sectionContent)) {
     // Mostra la data in bold
     textStyle(BOLD);
-    textFont("Courier New");
     let dateText = date + " ";
     if (textX + textWidth(dateText) > x + contentWidth) {
       textX = x + 50; // Torna a capo
       textY += textSize() + 5;
+
+      brushX = x + 50; // Torna a capo
+      brushY += textSize() + 5;
     }
     text(dateText, textX, textY);
     textX += textWidth(dateText);
+    brushX += textWidth(dateText);
 
     // Mostra i film in stile normale
     textStyle(NORMAL);
@@ -211,9 +219,14 @@ function drawSectionContent(x, y, w, h, color, section) {
       if (textX + textWidth(filmText) > x + contentWidth) {
         textX = x + 50; // Torna a capo
         textY += textSize() + 5;
+
+        brushX = x + 50; // Torna a capo
+        brushY += textSize() + 5;
       }
+      image(img, brushX, brushY, textWidth(filmText) + 5, 20);
       text(filmText, textX, textY);
       textX += textWidth(filmText);
+      brushX += textWidth(filmText);
     }
   }
   pop();
