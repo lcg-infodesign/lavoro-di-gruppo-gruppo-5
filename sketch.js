@@ -210,8 +210,7 @@ function drawSectionContent(x, y, w, h, color, section) {
       brushX = x + 50; // Torna a capo
       brushY += textSize() + 5;
     }
-    let provaText = text(dateText, textX, textY);
-    provaText.class(dateText);
+    text(dateText, textX, textY);
 
     dates.push({
       x: textX,
@@ -235,8 +234,7 @@ function drawSectionContent(x, y, w, h, color, section) {
         brushX = x + 50; // Torna a capo
         brushY += textSize() + 5;
       }
-      let provaImg = image(brush, brushX, brushY, textWidth(filmText) - 5, 10);
-      provaImg.class(dateText);
+      image(brush, brushX, brushY, textWidth(filmText) - 5, 10);
       text(filmText, textX, textY);
       textX += textWidth(filmText);
       brushX += textWidth(filmText);
