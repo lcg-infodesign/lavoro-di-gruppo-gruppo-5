@@ -222,7 +222,7 @@ function drawSectionContent(x, y, w, h, color, section) {
     });
     
     textX += textWidth(dateText);
-    brushX += textWidth(dateText
+    brushX += textWidth(dateText);
 
     // Mostra i film in stile normale
     textStyle(NORMAL);
