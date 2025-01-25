@@ -1,10 +1,15 @@
 // Parametri globali
 let folders = [];
 let activeFolderIndex = -1; // Nessuna cartella attiva all'inizio
+let activeFilmTitle = null; // Titolo del film attivo
+let activeFilmFolder = null; // Cartella associata al film attivo
+let popupY = null; // Posizione verticale del popup
 let folderHeight = 600;
 let folderWidth = 1080;
 let tabHeight = 46;
 let tabWidth = 233;
+
+let dates = [];
 
 // Distanze irregolari tra le cartelle
 let folderSpacings = [72, 80, 85, 75, 73, 80, 90, 95]; // Array di distanze predefinite
@@ -42,6 +47,7 @@ let sectionData = {}; // Oggetto per gestire i dati di tutte le sezioni
 function preload() {
   // Carica il dataset dalla cartella assets
   dataset = loadTable("assets/Censura-Cinematografica.csv", "header");
+  brush = loadImage('assets/img/brush-texture.png');
 }
 
 function setup() {
@@ -97,12 +103,18 @@ function draw() {
 
     drawFolder(folder);
   }
+
+  // Disegna il popup del film attivo
+  if (activeFilmTitle && activeFilmFolder) {
+    drawFilmPopup();
+  }
 }
 
 function drawTitle() {
   textAlign(CENTER, CENTER);
   textSize(30);
   fill(0);
+  textFont ("Courier New");
   text("Cinecensurati", width / 2, 50);
 }
 
@@ -181,13 +193,16 @@ function drawSectionContent(x, y, w, h, color, section) {
 
   fill(0);
   textAlign(LEFT, TOP);
-  textFont("Courier New"); // Imposta tutto il testo in Courier New
+  textFont("Courier New");
   textSize(16);
   textLeading(24);
 
   let textX = x + 50; // Margine laterale
   let textY = y + 50;
   let contentWidth = w - 100;
+
+  let brushX = x + 52;
+  let brushY = y + 52;
 
   let sectionContent = sectionData[section];
 
@@ -199,9 +214,22 @@ function drawSectionContent(x, y, w, h, color, section) {
     if (textX + textWidth(dateText) > x + contentWidth) {
       textX = x + 50; // Torna a capo
       textY += textSize() + 5;
+
+      brushX = x + 50; // Torna a capo
+      brushY += textSize() + 5;
     }
     text(dateText, textX, textY);
+
+    dates.push({
+      x: textX,
+      y: textY,
+      height: 20,
+      width: textWidth(dateText),
+      text: dateText,
+    });
+
     textX += textWidth(dateText);
+    brushX += textWidth(dateText);
 
     // Mostra i film in stile normale
     textStyle(NORMAL);
@@ -210,12 +238,50 @@ function drawSectionContent(x, y, w, h, color, section) {
       if (textX + textWidth(filmText) > x + contentWidth) {
         textX = x + 50; // Torna a capo
         textY += textSize() + 5;
+
+        brushX = x + 50; // Torna a capo
+        brushY += textSize() + 5;
       }
+      image(brush, brushX, brushY, textWidth(filmText) - 5, 10);
       text(filmText, textX, textY);
+      
+      if (
+        mouseX > textX &&
+        mouseX < textX + textWidth(filmText) &&
+        mouseY > textY - textSize() &&
+        mouseY < textY
+      ) {
+        cursor(HAND);
+        if (mouseIsPressed) {
+          activeFilmTitle = film; // Memorizza il film cliccato
+          activeFilmFolder = folders[activeFolderIndex]; // Associa la cartella attiva
+          popupY = height; // Imposta la posizione iniziale del popup
+        }
+      }
+
       textX += textWidth(filmText);
+      brushX += textWidth(filmText);
     }
   }
   pop();
+}
+
+function drawFilmPopup() {
+  let popupX = activeFilmFolder.x;
+  let popupW = folderWidth;
+  let popupH = folderHeight; // Altezza identica alla cartella
+
+  // Salita graduale del popup
+  popupY = lerp(popupY, activeFilmFolder.y, 0.1);
+
+  fill(activeFilmFolder.color); // Stesso colore della cartella
+  noStroke();
+  rect(popupX, popupY, popupW, popupH, 7);
+
+  fill(0);
+  textSize(20);
+  textAlign(CENTER, CENTER);
+  text(activeFilmTitle, popupX + popupW / 2, popupY + popupH / 2);
 }
 
 function prepareData() {
@@ -270,4 +336,3 @@ function mousePressed() {
     }
   }
 }
-
