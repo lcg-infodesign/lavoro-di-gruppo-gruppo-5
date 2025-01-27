@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinecensurati</title>
+    <link rel="stylesheet" href="style/variables.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/introduzione.css" />
+    <link rel="stylesheet" href="style/about.css" />
+  </head>
+  <body>
+    <h1 class="pageTitle">Cinecensurati</h1>
+    <div class="container">
+      <!-- Cartelle -->
+      <div class="folder" id="folder-1">
+        <div class="folder-tab" onclick="toggleFolder(1)">
+          <span class="border-span"></span>
+          <div class="folder-tab-title">Introduzione</div>
+        </div>
+        <div class="folder-content">
+          <div class="folder-text" id="intro-content">
+            <div class="Intro-text1">
+              <p>
+                Navigando tra le nostre pagine e aprendo le cartelle, vi
+                troverete di fronte a film che hanno osato sfidare i confini,
+                infrangendo i tabù del loro tempo e suscitando interrogativi che
+                ancora oggi rimangono irrisolti. Non si tratta solo di
+                pellicole, ma di opere che sono state al centro di dibattiti
+                accesi, censurate o addirittura sequestrate. Ogni film qui
+                racchiude un capitolo oscuro della storia <br> del cinema, tra
+                audacia, controversie politiche e scene che hanno messo alla
+                prova i limiti morali <br> di un’epoca. Etichettati come pericolosi,
+                scandalosi o irriverenti, questi film sono anche il cuore
+                pulsante di una battaglia per la libertà artistica e per il
+                diritto di esprimere il pensiero senza censura. Ci siamo presi
+                l’incarico di rivelare l’invisibile, di mostrare titoli che sono
+                stati <br> nascosti e oscurati dalla censura. Il nostro obiettivo è
+                riportare alla luce questi capolavori <br> per raccontare storie che
+                meritano di essere ascoltate senza filtri.
+              </p>
+            </div>
+            <div class="Dati">
+              <h2>EPOCHE</h2>
+              <div id="epochs">
+                <div class="stat-bar epoch-fascista">
+                  <div class="stat-bar-title">Epoca Fascista</div>
+                  <div class="stat-bar-rect-container">
+                    <div class="stat-bar-rect"></div>
+                  </div>
+                  <div class="stat-bar-value">24</div>
+                </div>
+                <div class="stat-bar epoch-dopoguerra">
+                  <div class="stat-bar-title">Il Dopoguerra</div>
+                  <div class="stat-bar-rect-container">
+                    <div class="stat-bar-rect"></div>
+                  </div>
+                  <div class="stat-bar-value">31</div>
+                </div>
+                <div class="stat-bar epoch-boom">
+                  <div class="stat-bar-title">Il Boom Economico</div>
+                  <div class="stat-bar-rect-container">
+                    <div class="stat-bar-rect"></div>
+                  </div>
+                  <div class="stat-bar-value">50</div>
+                </div>
+                <div class="stat-bar epoch-sessantotto">
+                  <div class="stat-bar-title">Il Sessantotto</div>
+                  <div class="stat-bar-rect-container">
+                    <div class="stat-bar-rect"></div>
+                  </div>
+                  <div class="stat-bar-value">125</div>
+                </div>
+                <div class="stat-bar epoch-anni80">
+                  <div class="stat-bar-title">Gli anni 80’ e 90’</div>
+                  <div class="stat-bar-rect-container">
+                    <div class="stat-bar-rect"></div>
+                  </div>
+                  <div class="stat-bar-value">11</div>
+                </div>
+                <div class="stat-bar epoch-millennio">
+                  <div class="stat-bar-title">Il Nuovo Millennio</div>
+                  <div class="stat-bar-rect-container">
+                    <div class="stat-bar-rect"></div>
+                  </div>
+                  <div class="stat-bar-value">4</div>
+                </div>
+              </div>
+
+              <h2>CATEGORIE</h2>
+              <div id="categories">
+                <div class="stat-bar category-religione">
+                  <div class="stat-bar-title">Religione</div>
+                  <div class="stat-bar-rect-container">
+                    <div class="stat-bar-rect"></div>
+                  </div>
+                  <div class="stat-bar-value">27</div>
+                </div>
+                <div class="stat-bar category-sesso">
+                  <div class="stat-bar-title">Sesso</div>
+                  <div class="stat-bar-rect-container">
+                    <div class="stat-bar-rect"></div>
+                  </div>
+                  <div class="stat-bar-value">112</div>
+                </div>
+                <div class="stat-bar category-violenza">
+                  <div class="stat-bar-title">Violenza</div>
+                  <div class="stat-bar-rect-container">
+                    <div class="stat-bar-rect"></div>
+                  </div>
+                  <div class="stat-bar-value">60</div>
+                </div>
+                <div class="stat-bar category-politica">
+                  <div class="stat-bar-title">Politica</div>
+                  <div class="stat-bar-rect-container">
+                    <div class="stat-bar-rect"></div>
+                  </div>
+                  <div class="stat-bar-value">46</div>
+                </div>
+              </div>
+            </div>
+            <div class="Intro-text2">
+              <p>
+                <b>COME FUNZIONA?</b> <br> <br> Nel sito, puoi navigare tra le cartelle che
+                rappresentano diversi periodi storici della storia <br> del cinema.
+                Ogni cartella si apre con una breve descrizione del contesto
+                storico di quel periodo, <br> per fornirti un inquadramento completo.
+                Sotto la spiegazione, troverai del testo censurato, che potrai
+                esplorare ulteriormente passando il mouse sopra di esso: così
+                facendo, la censura svanirà e vedrai <br> i titoli dei film che sono
+                stati coinvolti in quegli anni oscuri. Accanto a ciascun titolo,
+                troverai simboli che indicano il tipo di censura a cui i film
+                sono stati sottoposti, permettendoti di comprendere meglio le
+                diverse forme di repressione cinematografica in base al periodo
+                storico di riferimento.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--EPOCA FASCISTA-->
+      <div class="folder" id="folder-2">
+        <div class="folder-tab" onclick="toggleFolder(2)">
+          <div class="folder-tab-title">Epoca Fascista</div>
+        </div>
+        <div class="folder-content">
+          <div class="folder-text">
+            <div class="folder-header">
+              <div class="folder-period">1922<br />1943</div>
+              <div class="folder-description">
+                <p>
+                  Durante l’era fascista (1922-1943), la censura cinematografica
+                  divenne un potente strumento di controllo e di propaganda al
+                  servizio del regime. Con l’obiettivo di consolidare <br> il potere
+                  e plasmare l’immaginario collettivo con le pellicole, il
+                  governo intervenne <br> in maniera sempre più stringente sulla
+                  produzione e distribuzione dei film. <br> Un momento cruciale si
+                  ebbe nel 1923, quando Benito Mussolini introdusse una legge
+                  <br> che conferiva al Ministero dell’Interno il potere di giudizio
+                  dei film da trasmettere. <br> I criteri di censura si ampliarono
+                  significativamente e venne istituito il divieto <br> di
+                  rappresentare contenuti politici contrari al regime, scene che
+                  ritraevano la povertà <br> o il degrado del Paese, immagini che
+                  quindi rappresentassero la disobbedienza all’autorità. Nel
+                  1934 nacque la Direzione Generale per la Cinematografia, che
+                  coordinava il controllo <br> sui film per promuovere i valori
+                  fascisti. Opere ritenute critiche, come “Freaks” di Tod
+                  Browning, furono vietate o pesantemente censurate. In questo
+                  modo, il cinema divenne <br> non solo un mezzo di intrattenimento,
+                  ma anche uno strumento politico per controllare <br> la narrazione
+                  della realtà e sopprimere ogni forma di dissenso.
+                </p>
+              </div>
+              <!-- Legenda -->
+              <div id="legend" class="legend">
+                <div class="legend-item" id="politics">
+                  <span class="symbol">∅</span>
+                  <span class="description">Politica</span>
+                </div>
+                <div class="legend-item" id="violence">
+                  <span class="symbol">≡</span>
+                  <span class="description">Violenza</span>
+                </div>
+                <div class="legend-item" id="sex">
+                  <span class="symbol">∇</span>
+                  <span class="description">Sesso</span>
+                </div>
+                <div class="legend-item" id="religion">
+                  <span class="symbol">∓</span>
+                  <span class="description">Religione</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="content-2" class="film-list"></div>
+          <div id="film-2" class="film-info"></div>
+        </div>
+      </div>
+
+      <!--DOPOGUERRA-->
+      <div class="folder" id="folder-3">
+        <div class="folder-tab" onclick="toggleFolder(3)">
+          <div class="folder-tab-title">Il Dopoguerra</div>
+        </div>
+        <div class="folder-content">
+          <div class="folder-text">
+            <div class="folder-header">
+              <div class="folder-period">1944<br />1950</div>
+              <div class="folder-description">
+                <p>
+                  Nel periodo del dopoguerra, tra il 1944 e il 1950, la caduta
+                  del fascismo non segnò <br> la fine della censura in Italia; al
+                  contrario, il controllo sui contenuti cinematografici rimase
+                  estremamente rigido. Nel 1944, il compito di supervisionare i
+                  film venne affidato <br> al Ministero dello Spettacolo, che creò
+                  una Commissione di Revisione Cinematografica incaricata di
+                  decidere quali opere potessero essere distribuite al pubblico. <br>
+                  Le ragioni delle censure erano strettamente legate al clima
+                  dell’epoca. Da un lato, <br> si voleva salvaguardare il buon
+                  costume, intervenendo soprattutto sulle scene considerate
+                  troppo audaci o legate alla sfera sessuale. Dall’altro, c’era
+                  un’esigenza politica: <br> si temeva che i film potessero
+                  destabilizzare l’equilibrio fragile di un’Italia ancora scossa
+                  dal conflitto mondiale. A questo si aggiungeva poi il peso
+                  della religione. <br> La Chiesa Cattolica, seppur indirettamente,
+                  esercitava una forte influenza attraverso associazioni come la
+                  Democrazia Cristiana e l’Azione Cattolica, contribuendo <br> a
+                  orientare le decisioni censorie.
+                </p>
+              </div>
+              <!-- Legenda -->
+              <div id="legend" class="legend">
+                <div class="legend-item" id="politics">
+                  <span class="symbol">∅</span>
+                  <span class="description">Politica</span>
+                </div>
+                <div class="legend-item" id="violence">
+                  <span class="symbol">≡</span>
+                  <span class="description">Violenza</span>
+                </div>
+                <div class="legend-item" id="sex">
+                  <span class="symbol">∇</span>
+                  <span class="description">Sesso</span>
+                </div>
+                <div class="legend-item" id="religion">
+                  <span class="symbol">∓</span>
+                  <span class="description">Religione</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="content-3" class="film-list"></div>
+          <div id="film-3" class="film-info"></div>
+        </div>
+      </div>
+
+      <!--BOOM ECONOMICO-->
+      <div class="folder" id="folder-4">
+        <div class="folder-tab" onclick="toggleFolder(4)">
+          <div class="folder-tab-title">Il Boom Economico</div>
+        </div>
+        <div class="folder-content">
+          <div class="folder-text">
+            <div class="folder-header">
+              <div class="folder-period">1951<br />1967</div>
+              <div class="folder-description">
+                <p>
+                  Il boom economico degli anni ’50 e ’60 segna per il cinema
+                  italiano un periodo di grande fermento creativo e
+                  trasformazione, grazie a figure come Federico Fellini, Luchino
+                  Visconti e Pier Paolo Pasolini, che ridefiniscono il
+                  linguaggio cinematografico. <br> Tuttavia, questi anni sono anche
+                  caratterizzati da duri scontri con la censura, che colpisce
+                  temi ritenuti troppo audaci per l’epoca. La sessualità è uno
+                  dei principali bersagli: scene di nudità e allusioni erotiche
+                  suscitano scandalo, come nel caso emblematico de “La Dolce
+                  Vita” di Fellini, oggetto di tagli e polemiche. Anche i film
+                  con temi politici o religiosi non sono esenti da censura,
+                  finendo spesso sotto accusa, come nel caso di “Rocco e i suoi
+                  fratelli” di Visconti, che viene modificato per attenuare le
+                  sue critiche alle istituzioni. In questo contesto, il Vaticano
+                  interviene direttamente: nel 1952 pubblica l’<i>Index Librorum et
+                  Spectaculorum Prohibitorum</i>, un elenco di film che i fedeli
+                  devono evitare. <br> Si crea così una forte tensione tra
+                  l’innovazione artistica e i rigidi limiti imposti <br> da una
+                  società tradizionalista.
+                </p>
+              </div>
+              <!-- Legenda -->
+              <div id="legend" class="legend">
+                <div class="legend-item" id="politics">
+                  <span class="symbol">∅</span>
+                  <span class="description">Politica</span>
+                </div>
+                <div class="legend-item" id="violence">
+                  <span class="symbol">≡</span>
+                  <span class="description">Violenza</span>
+                </div>
+                <div class="legend-item" id="sex">
+                  <span class="symbol">∇</span>
+                  <span class="description">Sesso</span>
+                </div>
+                <div class="legend-item" id="religion">
+                  <span class="symbol">∓</span>
+                  <span class="description">Religione</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="content-4" class="film-list"></div>
+          <div id="film-4" class="film-info"></div>
+        </div>
+      </div>
+
+      <!--SESSANTOTTO-->
+      <div class="folder" id="folder-5">
+        <div class="folder-tab" onclick="toggleFolder(5)">
+          <div class="folder-tab-title">Il Sessantotto</div>
+        </div>
+        <div class="folder-content">
+          <div class="folder-text">
+            <div class="folder-header">
+              <div class="folder-period">1968<br />1980</div>
+              <div class="folder-description">
+                <p>
+                  Nel 1968, le richieste di maggiore libertà di espressione,
+                  emerse in un contesto di fermento sociale, si scontrarono con
+                  una censura e con dei valori ancora molto rigidi, soprattutto
+                  nei confronti di film erotici e politicamente sensibili. <br> Nel
+                  1962 venne introdotto il visto di censura: un sistema che
+                  classificava i film in base all’età, vietando quelli
+                  considerati inadatti a minori di 14 o 18 anni. <br> La censura
+                  colpiva principalmente pellicole audaci che trattavano temi
+                  sessuali o politici. Tra i film più controversi troviamo
+                  “Ultimo tango a Parigi” di Bernardo Bertolucci, sequestrato
+                  per oscenità e che portò il regista a processo. Le sue scene
+                  esplicite, particolarmente audaci, scatenarono un acceso
+                  dibattito sulla libertà artistica e i limiti della
+                  rappresentazione cinematografica. Un altro esempio è “Salò” o
+                  “Le 120 giornate <br> di Sodoma” di Pier Paolo Pasolini, accusato
+                  di blasfemia e pornografia per la sua violenza <br> e il
+                  trattamento crudo della sessualità. Il film suscitò
+                  indignazione, ma anche riflessioni sul significato e i limiti
+                  della libertà di espressione nel cinema. <br> Questi casi
+                  evidenziano il conflitto tra il desiderio di innovare e la
+                  volontà di mantenere il controllo su ciò che veniva
+                  rappresentato nel cinema, una lotta che segnò profondamente la
+                  cultura dell’epoca.
+                </p>
+              </div>
+              <!-- Legenda -->
+              <div id="legend" class="legend">
+                <div class="legend-item" id="politics">
+                  <span class="symbol">∅</span>
+                  <span class="description">Politica</span>
+                </div>
+                <div class="legend-item" id="violence">
+                  <span class="symbol">≡</span>
+                  <span class="description">Violenza</span>
+                </div>
+                <div class="legend-item" id="sex">
+                  <span class="symbol">∇</span>
+                  <span class="description">Sesso</span>
+                </div>
+                <div class="legend-item" id="religion">
+                  <span class="symbol">∓</span>
+                  <span class="description">Religione</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="content-5" class="film-list"></div>
+          <div id="film-5" class="film-info"></div>
+        </div>
+      </div>
+
+      <!--80 E 90-->
+      <div class="folder" id="folder-6">
+        <div class="folder-tab" onclick="toggleFolder(6)">
+          <div class="folder-tab-title">Gli anni 80’ e 90’</div>
+        </div>
+        <div class="folder-content">
+          <div class="folder-text">
+            <div class="folder-header">
+              <div class="folder-period">1981<br />1999</div>
+              <div class="folder-description">
+                <p>
+                  Negli anni '80 e '90 in Italia, la censura ha vissuto una fase
+                  di transizione significativa. Con l’avvento della televisione
+                  privata e il processo di globalizzazione, il controllo <br> sui
+                  contenuti ha visto un progressivo declino, portando a una
+                  maggiore esposizione <br> del pubblico a tematiche fino ad allora
+                  considerate controverse. <br> Una svolta importante si è verificata
+                  nel 1984, quando una riforma ha ridisegnato <br> il panorama della
+                  censura, trasformandola in un sistema di classificazione per
+                  fasce di età. Questo approccio meno invasivo ha limitato i
+                  tagli e le proibizioni dirette, consentendo agli spettatori di
+                  scegliere autonomamente se un film fosse adatto o meno. <br>
+                  Nonostante ciò, il dibattito sulla censura ha continuato a
+                  essere alimentato anche <br> dal ricordo di casi emblematici, come
+                  le numerose opere di Totò che, in decenni precedenti, furono
+                  sottoposte a tagli o modifiche per ragioni morali o politiche. <br>
+                  Film come "Totò e Carolina" (1955), accusato di offendere le
+                  istituzioni, furono censurati per contenuti ritenuti
+                  inappropriati, diventando simboli di una lotta tra libertà
+                  creativa <br> e controllo istituzionale.
+                </p>
+              </div>
+              <!-- Legenda -->
+              <div id="legend" class="legend">
+                <div class="legend-item" id="politics">
+                  <span class="symbol">∅</span>
+                  <span class="description">Politica</span>
+                </div>
+                <div class="legend-item" id="violence">
+                  <span class="symbol">≡</span>
+                  <span class="description">Violenza</span>
+                </div>
+                <div class="legend-item" id="sex">
+                  <span class="symbol">∇</span>
+                  <span class="description">Sesso</span>
+                </div>
+                <div class="legend-item" id="religion">
+                  <span class="symbol">∓</span>
+                  <span class="description">Religione</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="content-6" class="film-list"></div>
+          <div id="film-6" class="film-info"></div>
+        </div>
+      </div>
+
+      <!--NUOVO MILLENNIO-->
+      <div class="folder" id="folder-7">
+        <div class="folder-tab" onclick="toggleFolder(7)">
+          <div class="folder-tab-title">Il nuovo millennio</div>
+        </div>
+        <div class="folder-content">
+          <div class="folder-text">
+            <div class="folder-header">
+              <div class="folder-period">2000<br />2021</div>
+              <div class="folder-description">
+                <p>
+                  Nel 2000, la censura cinematografica in Italia subisce
+                  un’evoluzione significativa, concentrandosi maggiormente sulla
+                  classificazione dei film piuttosto che sulla loro modifica o
+                  proibizione. L’attenzione si sposta dal bloccare le opere
+                  alla loro catalogazione in base al contenuto, in modo da
+                  indicare a quale pubblico siano destinate. <br> Nel 2021, con
+                  l’entrata in vigore della Legge Franceschini, la censura
+                  cinematografica viene definitivamente abolita. Da quel
+                  momento, le autorità non hanno più il potere di bloccare <br> o
+                  modificare un film. La responsabilità di applicare le
+                  classificazioni per età, come <br> ad esempio “vietato ai minori di
+                  14 anni”, passa ai produttori. È una Commissione a valutare i
+                  contenuti, stabilendo la fascia d’età senza però imporre tagli
+                  o censure. In questo modo, la libertà artistica viene
+                  rispettata, pur mantenendo una protezione per i più giovani.
+                </p>
+              </div>
+              <!-- Legenda -->
+              <div id="legend" class="legend">
+                <div class="legend-item" id="politics">
+                  <span class="symbol">∅</span>
+                  <span class="description">Politica</span>
+                </div>
+                <div class="legend-item" id="violence">
+                  <span class="symbol">≡</span>
+                  <span class="description">Violenza</span>
+                </div>
+                <div class="legend-item" id="sex">
+                  <span class="symbol">∇</span>
+                  <span class="description">Sesso</span>
+                </div>
+                <div class="legend-item" id="religion">
+                  <span class="symbol">∓</span>
+                  <span class="description">Religione</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="content-7" class="film-list"></div>
+          <div id="film-7" class="film-info"></div>
+        </div>
+      </div>
+
+      <!--ABOUT-->
+      <div class="folder" id="folder-8">
+        <div class="folder-tab" onclick="toggleFolder(8)">
+          <div class="folder-tab-title">About Us</div>
+        </div>
+        <div class="folder-content">
+          <div class="folder-text about-container">
+            <!-- Testo superiore -->
+            <div class="about-text">
+              <h1>Chi siamo</h1>
+              <p>
+                Siamo un gruppo di ragazzi appassionati di cinema.
+                Abbiamo unito <br> le nostre esperienze e passioni per dare vita a
+                questo progetto, <br> partendo dal tema dell’invisibile per esplorare
+                un aspetto <br> fondamentale del cinema: la censura. <br>
+                Nato come parte di un progetto universitario, il nostro lavoro <br>
+                si concentra su come i film siano stati influenzati, modificati <br>
+                e talvolta limitati dalle normative e ideologie dei diversi
+                periodi <br> che hanno fatto da sfondo nella nostra storia. <br>
+                La nostra passione per il cinema ci ha spinto a riflettere su
+                come <br> la censura abbia plasmato la narrazione e l’immaginario
+                collettivo, <br> tra ciò che viene mostrato e ciò che viene omesso.
+              </p>
+            </div>
+
+            <!-- Galleria di foto -->
+            <div class="photo-grid">
+              <div class="photo-item">
+                <img src="assets/img/film preferiti/Giulia.png" alt="Foto 1" />
+                <div class="names">
+                  <h3>Giulia Amodio</h3>
+                  <p>
+                    Film preferito: <br />
+                    <i>Forrest Gump</i>
+                  </p>
+                </div>
+              </div>
+              <div class="photo-item">
+                <img src="assets/img/film preferiti/Cesare.png" alt="Foto 2" />
+                <div class="names">
+                  <h3>Cesare Donelli</h3>
+                  <p>
+                    Film preferito: <br />
+                    <i>Goodfellas</i>
+                  </p>
+                </div>
+              </div>
+              <div class="photo-item">
+                <img src="assets/img/film preferiti/Emma.png" alt="Foto 3" />
+                <div class="names">
+                  <h3>Emma Groppelli</h3>
+                  <p>
+                    Film preferito: <br />
+                    <i>Se mi lasci ti cancello</i>
+                  </p>
+                </div>
+              </div>
+              <div class="photo-item">
+                <img src="assets/img/film preferiti/marta2.png" alt="Foto 4" />
+                <div class="names">
+                  <h3>Marta Merli</h3>
+                  <p>
+                    Film preferito: <br />
+                    <i>What Women Want</i>
+                  </p>
+                </div>
+              </div>
+              <div class="photo-item">
+                <img
+                  src="assets/img/film preferiti/porcocane2.png"
+                  alt="Foto 5" />
+                <div class="names">
+                  <h3>Silvia Sartori</h3>
+                  <p>
+                    Film preferito: <br />
+                    <i>The devil wears Prada</i>
+                  </p>
+                </div>
+              </div>
+              <div class="photo-item">
+                <img src="assets/img/film preferiti/Camilla.png" alt="Foto 6" />
+                <div class="names">
+                  <h3>Camilla Vicario</h3>
+                  <p>
+                    Film preferito: <br />
+                    <i>Orecchie</i>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

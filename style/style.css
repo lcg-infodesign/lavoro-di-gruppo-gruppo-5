@@ -1,0 +1,354 @@
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  background-color: #e5e5f7;
+opacity: 1;
+background-image:  linear-gradient(#c5c5c5 1.4000000000000001px, transparent 1.4000000000000001px), linear-gradient(to right, #c5c5c5 1.4000000000000001px, #e5e5f7 1.4000000000000001px);
+background-size: 28px 28px;
+}
+
+.pageTitle {
+  text-align: center;
+  margin: 1em auto 0 auto;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.folder {
+  position: absolute;
+  top: var(--top);
+  width: 1080px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--main-color);
+  border-radius: 7px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  transition: top 1s ease, opacity 20s ease;
+  z-index: 0;
+  border: 2px solid #000;
+}
+
+
+.folder-header {
+  display: flex;
+  align-items: flex-start; /* Allinea gli elementi in alto */
+  justify-content: space-between; /* Spazia gli elementi ai lati opposti */
+  margin-bottom: 20px;
+  margin-top: 30px;
+  
+}
+
+.folder-period {
+  width: 5%; /* Occupa il 20% della larghezza della cartella */
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left; /* Allinea il periodo a sinistra */
+  margin-left: 60px;
+  color: #000;
+  line-height: 1.2; /* Imposta altezza della linea */
+  display: flex; /* Rende l'elemento flessibile */
+  align-items: flex-start; /* Allinea il contenuto del periodo in alto */
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.folder-description {
+  width: 75%; /* Occupa il 75% della larghezza della cartella */
+  font-size: 14px;
+  font-weight: regular;
+  text-align: left;
+  margin-right: 60px;
+  line-height: 1.2; /* Imposta altezza della linea */
+  display: flex; /* Rende l'elemento flessibile */
+  align-items: flex-start; /* Allinea il contenuto della descrizione in alto */
+  border: 2px solid #000;
+  border-radius: 10px;
+  justify-content: center;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+}
+
+.folder.open, .folder.film-open {
+  top: 10%;
+  height: 90%;
+}
+
+.folder.not-visible {
+  top: 150%;
+  transition: top 2s ease, visibility 2s ease;
+}
+
+.folder-tab {
+  font-size: 12pt;
+  position: absolute;
+  top: -46px;
+  left: var(--label-left);
+  width: 233px;
+  height: 46px;
+  background: black;
+  text-align: center;
+  line-height: 46px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 1;
+  clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+}
+
+.folder-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 4px);
+  height: 95%;
+  margin-left: 2px;
+  margin-top: 2px;
+  border-bottom: 2px solid black;
+  background-color: var(--main-color);
+  clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.folder-tab-title {
+  background: white;
+  padding: 2px 6px;
+  display: inline-block;
+  font-weight: bold;
+  line-height: normal;
+  border: 2px solid #000;
+}
+
+.folder-tab-title:hover {
+  background-color: var(--main-color-opacity);
+}
+
+
+.folder .folder-content {
+  padding: 2em 20px;
+  overflow-y: auto;
+  height: 90%;
+}
+
+.folder .film-list {
+  padding: 2em 20px;
+  opacity: 1;
+
+  transition: opacity 1s ease-in-out;
+  
+}
+
+.folder .folder-text {
+  opacity: 1;
+
+  transition: opacity .2s ease-in-out;
+}
+
+.folder:not(.open) .film-list {
+  display: none;
+  transition: opacity .2s ease-in-out;
+}
+
+.folder:not(.open) .folder-text {
+  opacity: 0;
+  display: none;
+}
+
+.folder:not(.film-open) .film-info {
+  visibility: visible;
+  position: absolute;
+  top: 90%;
+}
+
+.folder button{
+  background: none;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.folder button.year {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  scale: 1;
+  cursor: pointer;
+  transition: scale .2s ease-in-out;
+}
+
+.folder button.year:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+
+.folder button span.symbol {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5px;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.folder button span.symbol:hover {
+  scale: 1.1;
+  cursor: pointer;
+  
+}
+
+
+.folder button span.text {
+  font-size: 16px;
+  position: relative;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+}
+
+.folder button span.text::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 14px;
+
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 2px;
+  left: 0;
+
+  opacity: 1;
+
+  transition: width 1.5s ease-in-out, filter 1s ease-in-out, opacity 2s cubic-bezier(.75,-0.69,.34,1.55);
+}
+
+.folder button span.text.showed::before {
+  width: 0;
+  opacity: 0;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.film-list {
+  margin-top: 20px;
+  margin-left: 60px;
+  margin-right: 60px;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+.film-item {
+  margin-bottom: 10px;
+}
+
+.folder .film-info {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 60px;
+  margin-right: 60px;
+  padding: 40px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background-color: var(--main-color);
+  transition: top 0.7s ease, visibility 0.7s ease;
+  
+}
+
+.folder.film-open .film-info {
+  visibility: visible;
+  position: relative;
+  top: 0;
+
+  margin-top: 30px;
+  margin-left: 60px;
+  margin-right: 60px;
+  padding: 40px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  transition: top 1s ease;
+}
+
+.film-info aside {
+  width: 50%;
+}
+
+.film-info aside img {
+  width: 90%;
+}
+
+.film-info .info{
+  font-size: 14px;
+  color: black;
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.film-info .info h2 {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.film-info .info section {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 16px;
+  margin: 1em 0;
+
+}
+
+.film-info .info h3 {
+  display: inline;
+}
+
+.film-info .info strong {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.film-info .info .info-box {
+  margin-top: auto;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 155px; /* Sposta la legenda più in basso */
+  left: 20px; /* Posizione orizzontale */
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Assicurati che sia sopra altri elementi */
+  cursor: default; /* Mantieni il cursore di default */
+  border: 2px solid #000;
+  border-radius: 10px;
+  
+}
+
+.legend-item .description {
+  display: none;
+  margin-left: 10px;
+}
+
+.legend-item:hover .description {
+  display: inline-block;
+}

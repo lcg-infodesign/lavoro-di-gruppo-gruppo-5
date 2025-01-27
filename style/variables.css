@@ -1,0 +1,72 @@
+/* Introduzione */
+#folder-1 {
+  --main-color: #5b7fbd; 
+  --main-color-opacity: rgba(224, 222, 216, 0.5); /* 50% opacity */
+
+  --top: 10%;
+  --label-left: 137px;
+  
+}
+
+/* Epoca Fascista */
+#folder-2 {
+  --main-color: #dbc3db; 
+  --main-color-opacity: rgba(212, 194, 172, 0.5); /* 50% opacity */
+  
+  --top: 20%;
+  --label-left: 497px;
+}
+
+/* Il Dopoguerra */
+#folder-3 {
+  --main-color: #fe6232;
+  --main-color-opacity: rgba(194, 154, 158, 0.5); /* 50% opacity */
+
+  --top: 30%;
+  --label-left: 228px;
+}
+
+/* Il Boom Economico */
+#folder-4 {
+  --main-color: #b5a33a; 
+  --main-color-opacity: rgba(151, 140, 122, 0.5); /* 50% opacity */
+
+  --top: 40%;
+  --label-left: 681px;
+}
+
+/* Il Sessantotto */
+#folder-5 {
+  --main-color: #a1d0db; 
+  --main-color-opacity: rgba(169, 186, 209, 0.5); /* 50% opacity */
+
+  --top: 50%;
+  --label-left: 341px;
+}
+
+/* Gli Anni 80’ e 90’ */
+#folder-6 {
+  --main-color: #f5e037;
+  --main-color-opacity: rgba(103, 121, 107, 0.5); /* 50% opacity */
+
+  --top: 60%;
+  --label-left: 755px;
+}
+
+/* Nuovo Millennio */
+#folder-7 {
+  --main-color: #7a956d; 
+  --main-color-opacity: rgba(202, 226, 193, 0.5); /* 50% opacity */
+
+  --top: 70%;
+  --label-left: 151px;
+}
+
+/* About */
+#folder-8 {
+  --main-color: #ed9ea5; 
+  --main-color-opacity: rgba(245, 195, 168, 0.5); /* 50% opacity */
+
+  --top: 80%;
+  --label-left: 642px;
+}

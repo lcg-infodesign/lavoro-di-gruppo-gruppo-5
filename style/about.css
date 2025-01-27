@@ -1,0 +1,98 @@
+/* Sezione About Us */
+.about-text {
+  display: flex;
+  align-items: flex-start; /* Allinea gli elementi in alto */
+  justify-content: space-between; /* Spazia gli elementi ai lati opposti */
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.about-text h1 {
+  width: 5%; /* Occupa il 20% della larghezza della cartella */
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center; /* Allinea il periodo a sinistra */
+  margin-top: 14px;
+  margin-left: 60px;
+  color: #000;
+  line-height: 1.2; /* Imposta altezza della linea */
+  display: flex; /* Rende l'elemento flessibile */
+  align-items: flex-start; /* Allinea il contenuto del periodo in alto */
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.about-text p {
+  width: 75%; /* Occupa il 75% della larghezza della cartella */
+  font-size: 14px;
+  font-weight: regular;
+  text-align: left;
+  margin-right: 60px;
+  line-height: 1.2; /* Imposta altezza della linea */
+  display: flex; /* Rende l'elemento flessibile */
+  align-items: flex-start; /* Allinea il contenuto della descrizione in alto */
+  border: 2px solid #000;
+  border-radius: 10px;
+  justify-content: center;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Griglia delle foto */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tre colonne */
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 100%; /* Imposta la larghezza della griglia al 100% */
+  align-items: start; /* Allinea verticalmente i contenitori */
+}
+
+/* Contenitore di ogni foto */
+.photo-item {
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  transition: transform 0.3s ease; /* Aggiungi un effetto di ingrandimento quando si passa sopra */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100%;
+  height: 100%;
+}
+
+/* Immagine all'interno del contenitore */
+.photo-item img {
+  width: 100%;               /* L'immagine occupa tutta la larghezza del contenitore */
+  height: 550px;             /* Imposta un'altezza fissa per le immagini */
+  object-fit: cover;         /* Taglia o riempie l'immagine mantenendo le proporzioni */
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Effetto hover per ingrandire l'immagine al passaggio del mouse */
+.photo-item:hover {
+  transform: scale(1.05); /* Aumenta leggermente il box quando si passa sopra */
+}
+
+.photo-item h3 {
+  font-size: 18px;
+}
+
+.photo-item p {
+  font-size: 14px;
+  color: #000;
+}
+
+/* Box per i nomi */
+.names {
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+}

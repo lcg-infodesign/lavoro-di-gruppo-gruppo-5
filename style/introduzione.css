@@ -1,0 +1,120 @@
+#intro-content {
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 20px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  
+}
+
+.Intro-text1 {
+  border: 2px solid #000;
+  border-radius: 10px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.Intro-text2 {
+  margin-top: 15px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.Dati {
+  border: 2px solid #000;
+  border-radius: 10px;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+}
+
+#epochs, #categories {
+  margin-top: 20px;
+}
+
+.stat-bar {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.stat-bar-title {
+  flex: 1;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+}
+
+
+.stat-bar-rect {
+  height: 24px;
+  margin: 0 10px;
+  border-radius: 4px;
+}
+
+.stat-bar-rect-container {
+  flex: 2;
+}
+
+.stat-bar-value {
+  flex: 0.5;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  text-align: right;
+}
+
+/* Personalizza le lunghezze e i colori delle barre qui */
+.epoch-fascista .stat-bar-rect {
+  width: 150px;
+  background-color: #C29A9E;
+}
+
+.epoch-dopoguerra .stat-bar-rect {
+  width: 200px;
+  background-color: #A9BAD1;
+}
+
+.epoch-boom .stat-bar-rect {
+  width: 300px;
+  background-color: #978C7A;
+}
+
+.epoch-sessantotto .stat-bar-rect {
+  width: 400px;
+  background-color: #F5C3A8;
+}
+
+.epoch-anni80 .stat-bar-rect {
+  width: 100px;
+  background-color: #67796B;
+}
+
+.epoch-millennio .stat-bar-rect {
+  width: 50px;
+  background-color: #CAE2C1;
+}
+
+.category-religione .stat-bar-rect {
+  width: 150px;
+  background-color: #ad2823;
+}
+
+.category-sesso .stat-bar-rect {
+  width: 400px;
+  background-color: #400e0e;
+}
+
+.category-violenza .stat-bar-rect {
+  width: 250px;
+  background-color: #651616;
+}
+
+.category-politica .stat-bar-rect {
+  width: 200px;
+  background-color: #8a1f1f;
+}
