@@ -36,7 +36,7 @@ body {
 
 .pageTitle {
   display: block; /* Rendi l'immagine un elemento a blocco*/
-  margin: 0 auto; /* Centra l'immagine */
+  margin: 0 auto; /* Centra l'immagine*/
   max-width: 100%; /* L'immagine non supererà mai la larghezza del contenitore */
   height: auto; /* Mantieni le proporzioni */
   width: 250px; /* Imposta una larghezza fissa per il logo / / Riduci il margine inferiore */
