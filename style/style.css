@@ -35,9 +35,15 @@ body {
 }
 
 .pageTitle {
-  text-align: center;
-  margin: 1em auto 0 auto;
+  display: block; /* Rendi l'immagine un elemento a blocco */
+  margin: 0 auto; /* Centra l'immagine */
+  max-width: 100%; /* L'immagine non supererà mai la larghezza del contenitore */
+  height: auto; /* Mantieni le proporzioni */
+  width: 250px; /* Imposta una larghezza fissa per il logo / / Riduci il margine inferiore */
+  margin-top: 20px;
 }
+
+
 
 .container {
   position: relative;
