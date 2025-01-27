@@ -1,10 +1,37 @@
+@keyframes reveal {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+    background-color: black;
+  }
+  20% {
+    clip-path: circle(10% at 50% 50%); 
+  }
+  50% {
+    clip-path: circle(15% at 70% 30%); 
+  }
+  75% {
+    clip-path: circle(40% at 30% 70%); 
+    background-color: black;
+    background-image: none;
+  }
+  100% {
+    clip-path: circle(150% at 50% 50%); 
+    background-color: #e5e5f7;
+    background-image:  linear-gradient(#c5c5c5 1.4000000000000001px, transparent 1.4000000000000001px), linear-gradient(to right, #c5c5c5 1.4000000000000001px, #e5e5f7 1.4000000000000001px);
+    background-size: 28px 28px;
+  }
+}
+
+
+
+
 body {
   margin: 0;
   font-family: 'Courier New', monospace;
-  background-color: #e5e5f7;
-opacity: 1;
-background-image:  linear-gradient(#c5c5c5 1.4000000000000001px, transparent 1.4000000000000001px), linear-gradient(to right, #c5c5c5 1.4000000000000001px, #e5e5f7 1.4000000000000001px);
-background-size: 28px 28px;
+  opacity: 1;
+  background-size: 22px 22px;
+  animation: reveal 6s ease forwards; /* Apply the animation */
+
 }
 
 .pageTitle {
