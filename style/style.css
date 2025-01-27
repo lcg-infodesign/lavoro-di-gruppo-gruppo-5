@@ -169,7 +169,7 @@ background-size: 28px 28px;
 .folder:not(.film-open) .film-info {
   visibility: visible;
   position: absolute;
-  top: 90%;
+  top: 150%;
 }
 
 .folder button{
@@ -266,15 +266,13 @@ background-size: 28px 28px;
   border: 2px solid #000;
   border-radius: 20px;
   background-color: var(--main-color);
-  transition: top 0.7s ease, visibility 0.7s ease;
-  
+  transition: top 1s ease, visibility 1s ease;
 }
 
 .folder.film-open .film-info {
   visibility: visible;
   position: relative;
   top: 0;
-
   margin-top: 30px;
   margin-left: 60px;
   margin-right: 60px;
@@ -341,6 +339,7 @@ background-size: 28px 28px;
   cursor: default; /* Mantieni il cursore di default */
   border: 2px solid #000;
   border-radius: 10px;
+  background-color: #cdcdcb;
   
 }
 

@@ -71,50 +71,70 @@
 /* Personalizza le lunghezze e i colori delle barre qui */
 .epoch-fascista .stat-bar-rect {
   width: 150px;
-  background-color: #C29A9E;
+  background-color: #dbc3db;
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 .epoch-dopoguerra .stat-bar-rect {
   width: 200px;
-  background-color: #A9BAD1;
+  background-color: #fe6232;
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 .epoch-boom .stat-bar-rect {
   width: 300px;
-  background-color: #978C7A;
+  background-color: #b5a33a;
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 .epoch-sessantotto .stat-bar-rect {
   width: 400px;
-  background-color: #F5C3A8;
+  background-color: #a1d0db;
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 .epoch-anni80 .stat-bar-rect {
   width: 100px;
-  background-color: #67796B;
+  background-color: #f5e037;
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 .epoch-millennio .stat-bar-rect {
   width: 50px;
-  background-color: #CAE2C1;
+  background-color: #7a956d;
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 .category-religione .stat-bar-rect {
   width: 150px;
   background-color: #ad2823;
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 .category-sesso .stat-bar-rect {
   width: 400px;
   background-color: #400e0e;
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 .category-violenza .stat-bar-rect {
   width: 250px;
   background-color: #651616;
+  border: 2px solid #000;
+  border-radius: 4px;
 }
 
 .category-politica .stat-bar-rect {
   width: 200px;
   background-color: #8a1f1f;
+  border: 2px solid #000;
+  border-radius: 4px;
 }

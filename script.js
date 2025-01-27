@@ -8,10 +8,10 @@ const periods = [
 ];
 
 const symbolToCategory = {
-  'âˆ…': 'politica',
-  'âˆ“': 'religione',
-  'â‰¡': 'violenza',
-  'âˆ‡': 'sesso',
+  '∅': 'politica',
+  '∓': 'religione',
+  '≡': 'violenza',
+  '∇': 'sesso',
 };
 
 const findBanningPeriod = (banningDate) => {
