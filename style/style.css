@@ -351,8 +351,14 @@ body {
 .film-info .info strong {
   font-size: 14px;
   font-weight: normal;
+  
 }
-
+.film-info .info a {
+ color: #000;
+ cursor: pointer;
+  
+}
+  
 .film-info .info .info-box {
   margin-top: auto;
 }
